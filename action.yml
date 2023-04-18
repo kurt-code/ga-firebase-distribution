@@ -28,7 +28,7 @@ inputs:
     required: false
   releaseNotesFile:
     description: 'Release notes visible on release page'
-    required: false    
+    required: false
   debug:
     description: 'Flag that can included to print verbose log output.'
     required: false
@@ -36,6 +36,21 @@ inputs:
 branding:
   color: 'orange'
   icon: 'send'
+
+outputs:
+  upload_status:
+    description: 'success,warning or failure'
+    default: false
+  error_message:
+    description: 'Error message received from Firebase'
+  firebase_console_uri:
+    description: 'A link to the Firebase console displaying a single release. You can share this link with other developers in your org'
+  testing_uri:
+    description: 'A link to the release in the tester experience (Android native app) that lets testers view release notes and install the app onto their device. The tester needs access to the release in order to use the link'
+  binary_download_uri:
+    description: 'A signed link that directly downloads and installs the app binary (APK or AAB file) . The link expires after one hour'
+
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
