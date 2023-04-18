@@ -40,7 +40,6 @@ branding:
 outputs:
   upload_status:
     description: 'success,warning or failure'
-    default: false
   error_message:
     description: 'Error message received from Firebase'
   firebase_console_uri:

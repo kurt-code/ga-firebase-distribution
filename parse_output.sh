@@ -23,6 +23,7 @@ if [[ "$output_string" =~ "Error" ]]; then
   echo "Error message: $error_message"
   echo "error_message=$error_message" >> "$GITHUB_OUTPUT"
   echo "upload_status=failure" >> "$GITHUB_OUTPUT"
+#  exit 1
 else
   # Extract firebase console uri
   if [[ "$output_string" =~ $firebase_console_regex ]]; then
@@ -57,6 +58,7 @@ else
     echo "testing_uri=$testing_uri" >> "$GITHUB_OUTPUT"
     echo "binary_download_uri=$binary_download_uri" >> "$GITHUB_OUTPUT"
   fi
+#  exit 0
 fi
 
 
