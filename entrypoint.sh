@@ -36,4 +36,4 @@ firebase \
         ${INPUT_RELEASENOTESFILE:+ --release-notes-file "${RELEASE_NOTES_FILE}"} \
         "$( (( $INPUT_DEBUG )) && printf %s '--debug' )" > output.txt
 
-./parse_output.sh "$(cat output.txt)"
+parse_output.sh "$(cat output.txt)"

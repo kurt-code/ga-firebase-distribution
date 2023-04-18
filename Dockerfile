@@ -8,6 +8,8 @@ RUN apk update \
     && curl -sL https://firebase.tools | bash
 
 RUN chmod +x /app/entrypoint.sh
+RUN chmod +x /app/parse_output.sh
+COPY parse_output.sh /usr/local/bin/
 
 ENTRYPOINT [ "/app/entrypoint.sh" ]
 
