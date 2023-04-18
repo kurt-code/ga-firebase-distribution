@@ -5,7 +5,7 @@ COPY . /app
 
 RUN apk update \
     && apk add bash git g++ make python3 \
-    && yarn global add firebase-tools
+    && curl -sL https://firebase.tools | bash
 
 RUN chmod +x /app/entrypoint.sh
 
