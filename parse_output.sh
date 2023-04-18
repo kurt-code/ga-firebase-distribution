@@ -43,7 +43,7 @@ else
   # Check if all URLs were extracted successfully
   if [[ -z "$firebase_console_uri" || -z "$testing_uri" || -z "$binary_download_uri" ]]; then
     error_message="Failed to extract URLs from output string"
-    echo "WARNING: $error_message"
+    echo "WARNING: $output_string"
     echo "error_message=$error_message" >> "$GITHUB_OUTPUT"
     echo "upload_status=warning" >> "$GITHUB_OUTPUT"
   else
