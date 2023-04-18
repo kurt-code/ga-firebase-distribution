@@ -1,4 +1,4 @@
-FROM node:19-alpine3.16
+FROM node:18-alpine3.15
 
 WORKDIR /app
 COPY . /app
@@ -9,7 +9,7 @@ RUN apk update \
 
 RUN chmod +x /app/entrypoint.sh
 RUN chmod +x /app/parse_output.sh
-COPY parse_output.sh /usr/local/bin/
+COPY /app/parse_output.sh /usr/local/bin/
 
 ENTRYPOINT [ "/app/entrypoint.sh" ]
 
