@@ -1,4 +1,4 @@
-name: 'Firebase App Distribution'
+name: 'GA - Firebase App Distribution'
 description: 'GitHub Action that uploads artifacts to Firebase App Distribution'
 author: 'Wojciech Zięba <@wzieba>'
 inputs:
@@ -36,7 +36,6 @@ inputs:
 branding:
   color: 'orange'
   icon: 'send'
-
 outputs:
   upload_status:
     description: 'success,warning or failure'
@@ -48,8 +47,17 @@ outputs:
     description: 'A link to the release in the tester experience (Android native app) that lets testers view release notes and install the app onto their device. The tester needs access to the release in order to use the link'
   binary_download_uri:
     description: 'A signed link that directly downloads and installs the app binary (APK or AAB file) . The link expires after one hour'
-
-
 runs:
   using: 'docker'
   image: 'Dockerfile'
+  args:
+    - ${{ inputs.appId }}
+    - ${{ inputs.token }}
+    - ${{ inputs.serviceCredentialsFile }}
+    - ${{ inputs.serviceCredentialsFileContent }}
+    - ${{ inputs.file }}
+    - ${{ inputs.groups }}
+    - ${{ inputs.testers }}
+    - ${{ inputs.releaseNotes }}
+    - ${{ inputs.releaseNotesFile }}
+    - ${{ inputs.debug }}
