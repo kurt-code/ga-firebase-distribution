@@ -34,7 +34,9 @@ firebase \
         --testers "$INPUT_TESTERS" \
         ${RELEASE_NOTES:+ --release-notes "${RELEASE_NOTES}"} \
         ${INPUT_RELEASENOTESFILE:+ --release-notes-file "${RELEASE_NOTES_FILE}"} \
-        "$( (( $INPUT_DEBUG )) && printf %s '--debug' )" > output.txt
+        $( (( $INPUT_DEBUG )) && printf %s '--debug' ) \
+        > output.txt
 echo "ran firebase command..."
+ls -asl
 cat output.txt
-/usr/local/bin/parse_output.sh "$(cat output.txt)"
+bash /usr/local/bin/parse_output.sh "$(cat output.txt)"
